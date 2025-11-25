@@ -1,11 +1,13 @@
 const express=require("express");
-const mongoose=require("mongoose");
 const userRouter=require("./routes/userRoutes");
+const blogRouter=require("./routes/blogRoutes");
 const app=express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use("api/user", userRouter);
+
+app.use("/api/blogs", blogRouter);
 app.get("/", (req, res)=>{
     res.json("ok")
 })
